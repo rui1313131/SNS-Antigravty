@@ -278,6 +278,62 @@ const App: React.FC = () => {
 
           </div>
         </div>
+
+        {/* Mobile Bottom Navigation */}
+        <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-slate-950/95 backdrop-blur-xl border-t border-slate-800/50 safe-area-inset-bottom z-50">
+          <div className="flex justify-around items-center py-2">
+            <button
+              onClick={() => setView(ViewState.FEED)}
+              className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all ${view === ViewState.FEED
+                  ? 'text-indigo-400 bg-indigo-500/10'
+                  : 'text-slate-500 active:bg-slate-800'
+                }`}
+            >
+              <LayoutDashboard className="w-6 h-6" />
+              <span className="text-[10px] font-medium">フィード</span>
+            </button>
+            <button
+              onClick={() => setView(ViewState.FOLLOW)}
+              className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all ${view === ViewState.FOLLOW
+                  ? 'text-indigo-400 bg-indigo-500/10'
+                  : 'text-slate-500 active:bg-slate-800'
+                }`}
+            >
+              <Users className="w-6 h-6" />
+              <span className="text-[10px] font-medium">フォロー</span>
+            </button>
+            <button
+              onClick={() => setView(ViewState.COMMUNITY)}
+              className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all ${view === ViewState.COMMUNITY
+                  ? 'text-indigo-400 bg-indigo-500/10'
+                  : 'text-slate-500 active:bg-slate-800'
+                }`}
+            >
+              <Globe className="w-6 h-6" />
+              <span className="text-[10px] font-medium">コミュニティ</span>
+            </button>
+            <button
+              onClick={() => setView(ViewState.THEME)}
+              className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all ${view === ViewState.THEME
+                  ? 'text-indigo-400 bg-indigo-500/10'
+                  : 'text-slate-500 active:bg-slate-800'
+                }`}
+            >
+              <Palette className="w-6 h-6" />
+              <span className="text-[10px] font-medium">テーマ</span>
+            </button>
+            <button
+              onClick={() => setView(ViewState.SETTINGS)}
+              className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all ${view === ViewState.SETTINGS
+                  ? 'text-indigo-400 bg-indigo-500/10'
+                  : 'text-slate-500 active:bg-slate-800'
+                }`}
+            >
+              <Settings className="w-6 h-6" />
+              <span className="text-[10px] font-medium">設定</span>
+            </button>
+          </div>
+        </nav>
       </main>
     </div>
   );
