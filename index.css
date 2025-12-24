@@ -1,0 +1,284 @@
+/* VaultConnect - Premium Styling */
+
+/* CSS Variables for Dynamic Theming */
+:root {
+  --accent-color: #6366f1;
+  --accent-color-rgb: 99, 102, 241;
+  --base-font-size: 16px;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --border-radius: 12px;
+  --content-width: 768px;
+  
+  /* Glass Effect */
+  --glass-bg: rgba(15, 23, 42, 0.7);
+  --glass-border: rgba(148, 163, 184, 0.1);
+  --glass-blur: 12px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(var(--accent-color-rgb), 0.3);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--base-font-size);
+}
+
+body {
+  font-family: var(--font-family);
+  background: linear-gradient(135deg, #0f0a1e 0%, #1a1a2e 25%, #0f172a 50%, #16213e 75%, #0a0f1e 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Animated Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at 20% 20%, rgba(var(--accent-color-rgb), 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.5);
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}
+
+/* Glass Card Effect */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md);
+}
+
+/* Hover Glow Effect */
+.hover-glow {
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+/* Accent Border Gradient */
+.accent-border {
+  position: relative;
+}
+
+.accent-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--accent-color), rgba(168, 85, 247, 0.8), rgba(var(--accent-color-rgb), 0.5));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Smooth Animations */
+.animate-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-from-right-4 {
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Premium Button Style */
+button {
+  transition: all 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Input Focus Glow */
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--accent-color-rgb), 0.3);
+}
+
+/* Card Styles Based on Settings */
+[data-card-style="bordered"] .post-card {
+  border: 1px solid rgba(var(--accent-color-rgb), 0.3);
+  background: transparent;
+}
+
+[data-card-style="elevated"] .post-card {
+  box-shadow: var(--shadow-lg);
+  background: rgba(30, 41, 59, 0.9);
+}
+
+[data-card-style="glass"] .post-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+[data-card-style="minimal"] .post-card {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(100, 116, 139, 0.2);
+  border-radius: 0;
+}
+
+/* Avatar Shapes */
+[data-avatar-shape="circle"] .avatar {
+  border-radius: 50%;
+}
+
+[data-avatar-shape="rounded"] .avatar {
+  border-radius: 8px;
+}
+
+[data-avatar-shape="square"] .avatar {
+  border-radius: 4px;
+}
+
+/* Compact Mode */
+.compact-mode .post-card {
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.compact-mode .post-card .text-sm {
+  font-size: 13px;
+}
+
+/* Animation Control */
+.no-animations * {
+  animation: none !important;
+  transition: none !important;
+}
+
+.minimal-animations * {
+  animation-duration: 0.1s !important;
+  transition-duration: 0.1s !important;
+}
+
+/* Light Theme */
+.light-theme {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+}
+
+.light-theme .text-white {
+  color: #1e293b;
+}
+
+.light-theme .text-slate-200,
+.light-theme .text-slate-300 {
+  color: #475569;
+}
+
+.light-theme .text-slate-400,
+.light-theme .text-slate-500 {
+  color: #64748b;
+}
+
+.light-theme .bg-slate-900,
+.light-theme .bg-slate-950 {
+  background: rgba(248, 250, 252, 0.9);
+}
+
+.light-theme .bg-slate-800 {
+  background: rgba(226, 232, 240, 0.8);
+}
+
+.light-theme .border-slate-800,
+.light-theme .border-slate-900 {
+  border-color: rgba(203, 213, 225, 0.5);
+}
+
+/* Pulse Animation for Loading */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(var(--accent-color-rgb), 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(var(--accent-color-rgb), 0.6);
+  }
+}
+
+.loading-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-color), #a855f7, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Selection */
+::selection {
+  background: rgba(var(--accent-color-rgb), 0.3);
+  color: white;
+}
+
+/* Focus Visible */
+:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}

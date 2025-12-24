@@ -138,13 +138,17 @@ const App: React.FC = () => {
   return (
     <div className="flex h-screen bg-slate-950 text-slate-200 font-sans overflow-hidden">
       {/* Sidebar Navigation */}
-      <aside className="w-64 border-r border-slate-900 bg-slate-950 hidden md:flex flex-col">
-        <div className="p-6 border-b border-slate-900">
-          <div className="flex items-center gap-3 text-indigo-500">
-            <Shield className="w-8 h-8" />
-            <h1 className="text-xl font-bold tracking-tight text-white">VaultConnect</h1>
+      <aside className="w-64 border-r border-slate-800/50 bg-slate-950/80 backdrop-blur-xl hidden md:flex flex-col">
+        <div className="p-6 border-b border-slate-800/50">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+              <Shield className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h1 className="text-lg font-bold tracking-tight gradient-text">VaultConnect</h1>
+              <p className="text-[10px] text-slate-600 font-mono">Confidential SNS v2.0</p>
+            </div>
           </div>
-          <p className="text-xs text-slate-600 mt-2 font-mono">Ver: 1.0.0-Firebase</p>
         </div>
 
         <nav className="flex-1 p-4 space-y-1">
