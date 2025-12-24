@@ -16,6 +16,7 @@ export interface EncryptedPost {
   id: string;
   authorId: string;
   authorName: string;
+  authorPhotoURL?: string | null;
   timestamp: number;
   payload: EncryptedPayload;
   riskAssessment?: PrivacyRiskAssessment;
@@ -44,6 +45,9 @@ export interface KillSwitchConfig {
 export enum ViewState {
   FEED = 'FEED',
   SETTINGS = 'SETTINGS',
+  FOLLOW = 'FOLLOW',
+  COMMUNITY = 'COMMUNITY',
+  THEME = 'THEME',
   AUDIT_LOG = 'AUDIT_LOG',
   LOCKDOWN = 'LOCKDOWN'
 }

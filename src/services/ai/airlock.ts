@@ -1,12 +1,12 @@
 import { PrivacyRiskAssessment } from '../../../types';
 import { scanForPII } from './scanner';
 import { anonymize } from './anonymizer';
-import { analyzePrivacyRisk as callGemini } from '../geminiService'; // Leveraging existing service as raw transport
+import { analyzePrivacyRisk as callGemini } from '../../../services/geminiService'; // Leveraging existing service as raw transport
 
 export async function auditContent(draft: string): Promise<PrivacyRiskAssessment> {
   // 1. Local Sentry
   const localWarnings = scanForPII(draft);
-  
+
   // If critical local PII found, we might warn immediately, 
   // but for Phase 13 we proceed to AI to get full context, 
   // utilizing anonymization.
@@ -20,7 +20,7 @@ export async function auditContent(draft: string): Promise<PrivacyRiskAssessment
 
   // 4. Merge Results
   const mergedWarnings = [...localWarnings, ...aiAssessment.warnings];
-  
+
   // Deduplicate
   const uniqueWarnings = Array.from(new Set(mergedWarnings));
 
