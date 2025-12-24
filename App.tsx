@@ -7,6 +7,8 @@ import { AuthScreen } from './components/AuthScreen';
 import { FollowManager } from './components/FollowManager';
 import { CommunityManager } from './components/CommunityManager';
 import { ThemeCustomizer } from './components/ThemeCustomizer';
+import { LanguageSelector } from './components/LanguageSelector';
+import { LanguageProvider, useLanguage } from './src/i18n/LanguageContext';
 import { Shield, LayoutDashboard, Settings, LogOut, Loader2, Users, Globe, Palette } from 'lucide-react';
 
 // Firebase imports
@@ -270,8 +272,9 @@ const App: React.FC = () => {
             )}
 
             {view === ViewState.THEME && (
-              <div className="animate-in slide-in-from-right-4 duration-300">
+              <div className="animate-in slide-in-from-right-4 duration-300 space-y-6">
                 <h2 className="text-xl font-semibold text-white mb-6">テーマ設定</h2>
+                <LanguageSelector />
                 <ThemeCustomizer uid={authUser.uid} />
               </div>
             )}
@@ -285,8 +288,8 @@ const App: React.FC = () => {
             <button
               onClick={() => setView(ViewState.FEED)}
               className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all ${view === ViewState.FEED
-                  ? 'text-indigo-400 bg-indigo-500/10'
-                  : 'text-slate-500 active:bg-slate-800'
+                ? 'text-indigo-400 bg-indigo-500/10'
+                : 'text-slate-500 active:bg-slate-800'
                 }`}
             >
               <LayoutDashboard className="w-6 h-6" />
@@ -295,8 +298,8 @@ const App: React.FC = () => {
             <button
               onClick={() => setView(ViewState.FOLLOW)}
               className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all ${view === ViewState.FOLLOW
-                  ? 'text-indigo-400 bg-indigo-500/10'
-                  : 'text-slate-500 active:bg-slate-800'
+                ? 'text-indigo-400 bg-indigo-500/10'
+                : 'text-slate-500 active:bg-slate-800'
                 }`}
             >
               <Users className="w-6 h-6" />
@@ -305,8 +308,8 @@ const App: React.FC = () => {
             <button
               onClick={() => setView(ViewState.COMMUNITY)}
               className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all ${view === ViewState.COMMUNITY
-                  ? 'text-indigo-400 bg-indigo-500/10'
-                  : 'text-slate-500 active:bg-slate-800'
+                ? 'text-indigo-400 bg-indigo-500/10'
+                : 'text-slate-500 active:bg-slate-800'
                 }`}
             >
               <Globe className="w-6 h-6" />
@@ -315,8 +318,8 @@ const App: React.FC = () => {
             <button
               onClick={() => setView(ViewState.THEME)}
               className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all ${view === ViewState.THEME
-                  ? 'text-indigo-400 bg-indigo-500/10'
-                  : 'text-slate-500 active:bg-slate-800'
+                ? 'text-indigo-400 bg-indigo-500/10'
+                : 'text-slate-500 active:bg-slate-800'
                 }`}
             >
               <Palette className="w-6 h-6" />
@@ -325,8 +328,8 @@ const App: React.FC = () => {
             <button
               onClick={() => setView(ViewState.SETTINGS)}
               className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all ${view === ViewState.SETTINGS
-                  ? 'text-indigo-400 bg-indigo-500/10'
-                  : 'text-slate-500 active:bg-slate-800'
+                ? 'text-indigo-400 bg-indigo-500/10'
+                : 'text-slate-500 active:bg-slate-800'
                 }`}
             >
               <Settings className="w-6 h-6" />
@@ -339,4 +342,22 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+// Wrap App with LanguageProvider
+const AppWithLanguage: React.FC = () => {
+  const [authUser, setAuthUser] = React.useState<AuthUser | null>(null);
+
+  React.useEffect(() => {
+    const unsubscribe = onAuthChange((user) => {
+      setAuthUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  return (
+    <LanguageProvider uid={authUser?.uid}>
+      <App />
+    </LanguageProvider>
+  );
+};
+
+export default AppWithLanguage;

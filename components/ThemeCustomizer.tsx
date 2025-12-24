@@ -80,8 +80,8 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ uid }) => {
                         key={id}
                         onClick={() => setActiveSection(id)}
                         className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all ${activeSection === id
-                                ? 'bg-indigo-600 text-white'
-                                : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                            ? 'bg-indigo-600 text-white'
+                            : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
                             }`}
                     >
                         <Icon className="w-4 h-4" />
@@ -112,8 +112,8 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ uid }) => {
                                     key={mode}
                                     onClick={() => updateSetting('theme', mode)}
                                     className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border transition-colors ${settings.theme === mode
-                                            ? 'bg-indigo-600/20 border-indigo-500 text-indigo-400'
-                                            : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-600'
+                                        ? 'bg-indigo-600/20 border-indigo-500 text-indigo-400'
+                                        : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-600'
                                         }`}
                                 >
                                     <Icon className="w-4 h-4" />
@@ -132,8 +132,8 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ uid }) => {
                                     key={value}
                                     onClick={() => updateSetting('accentColor', value)}
                                     className={`w-8 h-8 rounded-lg transition-transform hover:scale-110 ${settings.accentColor === value
-                                            ? 'ring-2 ring-white ring-offset-2 ring-offset-slate-900'
-                                            : ''
+                                        ? 'ring-2 ring-white ring-offset-2 ring-offset-slate-900'
+                                        : ''
                                         }`}
                                     style={{ backgroundColor: value }}
                                     title={name}
@@ -177,8 +177,8 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ uid }) => {
                                     key={size}
                                     onClick={() => updateSetting('fontSize', size)}
                                     className={`flex-1 px-3 py-2 rounded-lg border transition-colors ${settings.fontSize === size
-                                            ? 'bg-indigo-600/20 border-indigo-500 text-indigo-400'
-                                            : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-600'
+                                        ? 'bg-indigo-600/20 border-indigo-500 text-indigo-400'
+                                        : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-600'
                                         }`}
                                 >
                                     {label}
@@ -196,8 +196,8 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ uid }) => {
                                     key={value}
                                     onClick={() => updateSetting('fontFamily', value as FontFamily)}
                                     className={`px-4 py-3 rounded-lg border text-left transition-colors ${settings.fontFamily === value
-                                            ? 'bg-indigo-600/20 border-indigo-500 text-indigo-400'
-                                            : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-600'
+                                        ? 'bg-indigo-600/20 border-indigo-500 text-indigo-400'
+                                        : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-600'
                                         }`}
                                 >
                                     {name}
@@ -230,8 +230,8 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ uid }) => {
                                     key={value}
                                     onClick={() => updateSetting('contentWidth', value as any)}
                                     className={`flex-1 px-3 py-2 rounded-lg border transition-colors ${settings.contentWidth === value
-                                            ? 'bg-indigo-600/20 border-indigo-500 text-indigo-400'
-                                            : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-600'
+                                        ? 'bg-indigo-600/20 border-indigo-500 text-indigo-400'
+                                        : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-600'
                                         }`}
                                 >
                                     {label}
@@ -284,8 +284,8 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ uid }) => {
                                     key={value}
                                     onClick={() => updateSetting('cardStyle', value)}
                                     className={`px-4 py-3 rounded-lg border transition-colors ${settings.cardStyle === value
-                                            ? 'bg-indigo-600/20 border-indigo-500 text-indigo-400'
-                                            : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-600'
+                                        ? 'bg-indigo-600/20 border-indigo-500 text-indigo-400'
+                                        : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-600'
                                         }`}
                                 >
                                     {label}
@@ -307,8 +307,8 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ uid }) => {
                                     key={value}
                                     onClick={() => updateSetting('avatarShape', value)}
                                     className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border transition-colors ${settings.avatarShape === value
-                                            ? 'bg-indigo-600/20 border-indigo-500 text-indigo-400'
-                                            : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-600'
+                                        ? 'bg-indigo-600/20 border-indigo-500 text-indigo-400'
+                                        : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-600'
                                         }`}
                                 >
                                     <Icon className="w-4 h-4" />
@@ -355,8 +355,8 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ uid }) => {
                                     key={name}
                                     onClick={() => updateSetting('customBackground', value)}
                                     className={`h-16 rounded-lg border transition-all overflow-hidden ${settings.customBackground === value
-                                            ? 'ring-2 ring-indigo-500'
-                                            : 'border-slate-700 hover:border-slate-600'
+                                        ? 'ring-2 ring-indigo-500'
+                                        : 'border-slate-700 hover:border-slate-600'
                                         }`}
                                     style={{ background: value || '#1e293b' }}
                                     title={name}
@@ -405,8 +405,8 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ uid }) => {
                                     key={value}
                                     onClick={() => updateSetting('animationLevel', value)}
                                     className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border transition-colors ${settings.animationLevel === value
-                                            ? 'bg-indigo-600/20 border-indigo-500 text-indigo-400'
-                                            : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-600'
+                                        ? 'bg-indigo-600/20 border-indigo-500 text-indigo-400'
+                                        : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-600'
                                         }`}
                                 >
                                     <Icon className="w-4 h-4" />
@@ -431,7 +431,7 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ uid }) => {
                     <div className="flex items-center gap-3 mb-3">
                         <div
                             className={`w-10 h-10 flex items-center justify-center text-white font-medium ${settings.avatarShape === 'circle' ? 'rounded-full' :
-                                    settings.avatarShape === 'rounded' ? 'rounded-lg' : 'rounded-sm'
+                                settings.avatarShape === 'rounded' ? 'rounded-lg' : 'rounded-sm'
                                 }`}
                             style={{ backgroundColor: settings.accentColor }}
                         >
