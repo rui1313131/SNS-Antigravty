@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
     Palette, Sun, Moon, Monitor, Type, Minimize2, Maximize2, Loader2,
     Square, Circle, RectangleHorizontal, Sparkles, Zap, ZapOff,
-    Image, Sliders, Layout, Eye, EyeOff
+    Sliders, Layout, Eye, EyeOff
 } from 'lucide-react';
 import {
     UserSettings,
@@ -342,7 +342,7 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ uid }) => {
             {activeSection === 'background' && (
                 <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-6">
                     <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-                        <Image className be="w-5 h-5 text-indigo-500" />
+                        <Palette className="w-5 h-5 text-indigo-500" />
                         背景設定
                     </h3>
 
